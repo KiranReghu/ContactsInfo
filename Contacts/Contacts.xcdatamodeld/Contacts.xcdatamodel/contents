@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20G95" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Address" representedClassName="Address" syncable="YES">
+        <attribute name="city" attributeType="String"/>
+        <attribute name="street" attributeType="String"/>
+        <attribute name="suite" attributeType="String"/>
+        <attribute name="zipcode" attributeType="String"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="address" inverseEntity="Contact"/>
+        <relationship name="geo" maxCount="1" deletionRule="Nullify" destinationEntity="Geo" inverseName="address" inverseEntity="Geo"/>
+    </entity>
+    <entity name="Company" representedClassName="Company" syncable="YES">
+        <attribute name="bs" attributeType="String"/>
+        <attribute name="catchPhrase" attributeType="String"/>
+        <attribute name="name" attributeType="String"/>
+        <relationship name="contact" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Contact" inverseName="company" inverseEntity="Contact"/>
+    </entity>
+    <entity name="Contact" representedClassName="Contact" syncable="YES">
+        <attribute name="email" attributeType="String"/>
+        <attribute name="id" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="name" attributeType="String"/>
+        <attribute name="phone" attributeType="String"/>
+        <attribute name="username" attributeType="String"/>
+        <attribute name="website" attributeType="String"/>
+        <relationship name="address" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="contact" inverseEntity="Address"/>
+        <relationship name="company" maxCount="1" deletionRule="Nullify" destinationEntity="Company" inverseName="contact" inverseEntity="Company"/>
+    </entity>
+    <entity name="Geo" representedClassName="Geo" syncable="YES">
+        <attribute name="lat" attributeType="String"/>
+        <attribute name="lng" attributeType="String"/>
+        <relationship name="address" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="geo" inverseEntity="Address"/>
+    </entity>
+    <elements>
+        <element name="Address" positionX="-63" positionY="-18" width="128" height="119"/>
+        <element name="Geo" positionX="-54" positionY="18" width="128" height="74"/>
+        <element name="Company" positionX="-36" positionY="36" width="128" height="89"/>
+        <element name="Contact" positionX="-18" positionY="63" width="128" height="149"/>
+    </elements>
+</model>
